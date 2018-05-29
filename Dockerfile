@@ -21,15 +21,15 @@ ENV LC_ALL en_GB.UTF-8
 
 # Create dispatcher cache folders
 RUN mkdir /etc/apache2/conf
-RUN mkdir -p /etc/apache2/dispatcher/cache
+RUN mkdir -p /etc/apache2/res/cache
 
 # Add config files to appropriate folders
-ADD dispatcher/.bash_profile /root/.bash_profile
-ADD dispatcher/dispatcher.conf /etc/apache2/conf-available/
-ADD dispatcher/dispatcher.load /etc/apache2/mods-available/
-ADD dispatcher/dispatcher.any /etc/apache2/conf/
-ADD dispatcher/dispatcher-apache2.4-4.2.3.so /usr/lib/apache2/modules/mod_dispatcher.so
-ADD dispatcher/jdf-aem-dispatcher.conf /etc/apache2/sites-available/
+ADD res/.bash_profile /root/.bash_profile
+ADD res/dispatcher.conf /etc/apache2/conf-available/
+ADD res/dispatcher.load /etc/apache2/mods-available/
+ADD res/dispatcher.any /etc/apache2/conf/
+ADD res/dispatcher-apache2.4-4.2.3.so /usr/lib/apache2/modules/mod_dispatcher.so
+ADD res/aem-dispatcher.conf /etc/apache2/sites-available/
 
 # Manually set up the apache environment variables
 ENV APACHE_RUN_USER www-data
@@ -47,7 +47,7 @@ ENV HOME /root
 RUN a2enmod rewrite
 RUN a2enmod dispatcher
 RUN a2enconf dispatcher
-RUN a2ensite jdf-aem-dispatcher
+RUN a2ensite aem-dispatcher
 
 # Launch apache 
 CMD apachectl -D FOREGROUND

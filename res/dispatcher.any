@@ -33,7 +33,7 @@
       /rend01
         {
         # Hostname or IP of the render
-        /hostname "jdf-pub-host"
+        /hostname "pub-host"
         # Port of the render
         /port "5503"
         # Connect timeout in milliseconds, 0 to wait indefinitely
@@ -99,7 +99,7 @@
       /0041
         {
         /type "allow"
-        /extension '(clientlibs|css|gif|ico|js|png|swf|jdf|jpe?g|woff2?|ttf|svg)'
+        /extension '(clientlibs|css|gif|ico|js|png|swf|jpe?g|woff2?|ttf|svg)'
         }
 
       # Enable features
