@@ -1,4 +1,4 @@
-## Ubuntu 16.04 AEM Server
+## Ubuntu 16.04 AEM Dispatcher
 
 ### Instructions
 
