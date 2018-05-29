@@ -1,0 +1,8 @@
+#!/bin/bash
+
+HOST_IP=`ifconfig en0 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+echo HOST_IP=$HOST_IP >> .env
+
+docker-compose build
+
+docker-compose up

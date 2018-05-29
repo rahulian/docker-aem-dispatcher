@@ -1,0 +1,20 @@
+version: '3'
+services:
+  jdf-dispatcher:
+    image: jdf-aem-dispatcher-ubuntu-16.04:1.0
+    container_name: jdf-aem-dispatcher
+    build: ./
+    restart: always
+    ports:
+      - "8180:80"
+    extra_hosts:
+     - 'jdf-aem-dispatcher:${HOST_IP}'
+     - 'jdf-en.local:${HOST_IP}'
+     - 'jdf-jp.local:${HOST_IP}'
+     - 'jdf-us.local:${HOST_IP}'
+    stdin_open: true
+    tty: true
+    networks:
+      - webnet
+networks:
+  webnet:
